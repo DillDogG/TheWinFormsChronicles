@@ -1,3 +1,5 @@
+using TheWinFormsChronicles.Objects.Character;
+
 namespace TheWinFormsChronicles;
 
 static class Program
@@ -12,5 +14,8 @@ static class Program
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
         Application.Run(new Form1());
+
+        StormTrooper notRex = new StormTrooper();
+        notRex.attemptAttack(3);
     }    
 }
