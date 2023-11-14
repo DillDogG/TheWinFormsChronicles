@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TheWinFormsChronicles.Objects.Character
 {
-    internal class Character
+    internal class Character /*: ICharacter */
     {
         // general characteristics
         string name;
         // stats
-        int constitution;
-        int dexterity;
-        int weaponSkill;
-        int forcePower;
-        int blasterPower;
+        private int constitution;
+        private int dexterity;
+        private int weaponSkill;
+        private int forcePower;
+        private int blasterSkill;
+
         
 
         // stateful characteristics/derived characteristics
@@ -24,6 +27,16 @@ namespace TheWinFormsChronicles.Objects.Character
         int fortitudeSave;
         int willSave;
         int forceSave;
+
+        public Character() {
+            constitution = 8;
+            dexterity = 8;
+            weaponSkill = 8;
+            forcePower = 8;
+            blasterSkill = 8;
+        }
+
+        
 
         // equiped items
 
@@ -47,7 +60,7 @@ namespace TheWinFormsChronicles.Objects.Character
 
         public void defend(int incomingDamage)
         {
-            health -= incomingDamage - dexterity;
+            health -= incomingDamage - (dexterity * (forceSave + 1));
         }
     }
 }

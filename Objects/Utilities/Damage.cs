@@ -11,9 +11,9 @@ namespace TheWinFormsChronicles.Objects.Utilities
         public Damage() { }
         public Damage(int damage) { }
 
-        public takeDamage()
-        {
-
-        }
+        //public takeDamage()
+        //{
+        //
+        //}
     }
 }
