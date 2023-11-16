@@ -14,6 +14,7 @@ namespace TheWinFormsChronicles.UI
         private int weaponSkill;
         private int forcePower;
         private int blasterSkill;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public Character()
         {
@@ -22,6 +23,13 @@ namespace TheWinFormsChronicles.UI
             weaponSkill = 8;
             forcePower = 8;
             blasterSkill = 8;
+        }
+
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            if (PropertyChanged != null) {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
 
         public int Constitution {
@@ -71,10 +79,7 @@ namespace TheWinFormsChronicles.UI
         }
 
 
-        public event PropertyChangedEventHandler? PropertyChanged;
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "") {
-            PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-        }
+        
     }
 
 }

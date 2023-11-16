@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheWinFormsChronicles.Objects.Character
+namespace TheWinFormsChronicles.GameLogic.dialogue
 {
-    internal interface ICanAttack
+    internal class Dialogue
     {
-        bool attemptAttack(int difficulty);
+        public Response dialogueStart { get; set; }
     }
 }

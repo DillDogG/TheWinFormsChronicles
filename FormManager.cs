@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheWinFormsChronicles {
     internal class FormManager : ApplicationContext {
-        private static Lazy<FormManager> _current = new Lazy<FormManager>(());
+        private static Lazy<FormManager> _current = new Lazy<FormManager>();
         public static FormManager Current => _current.Value;
 
         public FormManager()
@@ -22,7 +22,12 @@ namespace TheWinFormsChronicles {
                 ExitThread();
             }
         }
-    }
 
-    public T CreateForm<T>
+        public T CreateForm<T>() where T : Form, new()
+        {
+            var ret = new T();
+            ret.FormClosed += onFormClosed;
+            return ret;
+        }
+    }
 }

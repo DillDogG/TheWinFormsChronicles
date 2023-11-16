@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheWinFormsChronicles.Objects.Character
+namespace TheWinFormsChronicles.GameLogic.Character
 {
     internal class StormTrooper : Character, ICanAttack
     {

@@ -1,23 +1,25 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace TheWinFormsChronicles.Objects.Character
+namespace TheWinFormsChronicles.GameLogic.Character
 {
-    internal class Character /*: ICharacter */
-    {
+    internal class Character : ICharacter {
         // general characteristics
         string name;
         // stats
-        private int constitution;
-        private int dexterity;
-        private int weaponSkill;
-        private int forcePower;
-        private int blasterSkill;
+        public int constitution { get; set; }
+        public int dexterity { get; set; }
+        public int weaponSkill { get; set; }
+        public int forcePower { get; set; }
+        public int blasterSkill { get; set; }
 
         
 
@@ -47,11 +49,11 @@ namespace TheWinFormsChronicles.Objects.Character
 
         }
 
-        public virtual bool attemptAttack(int difficulty)
+        /* public virtual bool attemptAttack(int difficulty)
         {
             // randomize hit using specific skill
             return false;
-        }
+        } */
 
         public int performAttack()
         {
