@@ -11,11 +11,11 @@ public partial class Form1 : Form
         playerCharacter.Constitution = gameCharacter.constitution;
 
         initializeCharacterComponents();
-        
+
     }
     private void initializeCharacterComponents()
     {
-        
+
     }
 
     private void Form1_Load(object sender, EventArgs e)
@@ -26,6 +26,11 @@ public partial class Form1 : Form
 
     private void charCreate_Click(object sender, EventArgs e)
     {
-        
+
+    }
+
+    private void constitution_ValueChanged(object sender, EventArgs e)
+    {
+
     }
 }

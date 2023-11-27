@@ -20,6 +20,7 @@ namespace TheWinFormsChronicles.GameLogic.Character
         public int weaponSkill { get; set; }
         public int forcePower { get; set; }
         public int blasterSkill { get; set; }
+        public int charisma { get; set; }
 
         
 
@@ -36,6 +37,7 @@ namespace TheWinFormsChronicles.GameLogic.Character
             weaponSkill = 8;
             forcePower = 8;
             blasterSkill = 8;
+            charisma = 8;
         }
 
         
