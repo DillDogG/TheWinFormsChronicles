@@ -17,10 +17,10 @@ namespace TheWinFormsChronicles.GameLogic.Character
         // stats
         public int constitution { get; set; }
         public int dexterity { get; set; }
+        public int charisma { get; set; }
         public int weaponSkill { get; set; }
         public int forcePower { get; set; }
         public int blasterSkill { get; set; }
-        public int charisma { get; set; }
 
         
 
@@ -34,10 +34,10 @@ namespace TheWinFormsChronicles.GameLogic.Character
         public Character() {
             constitution = 8;
             dexterity = 8;
+            charisma = 8;
             weaponSkill = 8;
             forcePower = 8;
             blasterSkill = 8;
-            charisma = 8;
         }
 
         

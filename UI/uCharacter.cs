@@ -7,22 +7,24 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TheWinFormsChronicles.UI {
-    internal class Character : INotifyPropertyChanged {
+    internal class uCharacter : INotifyPropertyChanged {
         private int constitution;
         private int dexterity;
+        private int charisma;
         private int weaponSkill;
         private int forcePower;
         private int blasterSkill;
-        private int charisma;
+        private int creationPoints;
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        public Character() {
+        public uCharacter() {
             constitution = 8;
             dexterity = 8;
+            charisma = 8;
             weaponSkill = 8;
             forcePower = 8;
             blasterSkill = 8;
-            charisma = 8;
+            creationPoints = 27;
         }
 
         private void NotifyPropertyChanged([CallerMemberName] String propertyName = "") {
@@ -46,6 +48,15 @@ namespace TheWinFormsChronicles.UI {
             }
             set {
                 this.dexterity = value;
+                NotifyPropertyChanged();
+            }
+        }
+        public int Charisma {
+            get {
+                return this.charisma;
+            }
+            set {
+                this.charisma = value;
                 NotifyPropertyChanged();
             }
         }
@@ -76,12 +87,12 @@ namespace TheWinFormsChronicles.UI {
                 NotifyPropertyChanged();
             }
         }
-        public int Charisma {
+        public int CreationPoints {
             get {
-                return this.charisma;
+                return this.creationPoints;
             }
             set {
-                this.charisma = value;
+                this.creationPoints = value;
                 NotifyPropertyChanged();
             }
         }
