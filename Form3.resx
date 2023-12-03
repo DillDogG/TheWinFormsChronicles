@@ -117,13 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Descriptions.Text" xml:space="preserve">
-    <value>Stat Descriptors:
-Constitution: General Vitality. Affects Health points.
-Dexterity: General Agility. Affects ability to dodge and attack.
-Charisma: Way with words. Affects ability to convince people.
-Weapon Skill: Affects ability to hit with melee weapon and unlocks unique skills.
-Force Power: Affects ability to use the force, as well as resist enemy's force.
-Blaster Skill: Affects ability to hit with a blaster.</value>
-  </data>
 </root>

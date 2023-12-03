@@ -15,9 +15,11 @@ static class Program
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
         FormManager formManager = new FormManager();
+        formManager.OpenCharacterStats();
+        formManager.OpenBattlePage();
         Application.Run(FormManager.Current);
 
-        Character myCharacter = new Character();
+        GameLogic.Character.Character myCharacter = new GameLogic.Character.Character();
         NonPlayerCharacter generalGrevious = new NonPlayerCharacter();
         generalGrevious.dialogue = new Dialogue();
 

@@ -13,7 +13,7 @@ namespace TheWinFormsChronicles.GameLogic.Character
 {
     internal class Character : ICharacter {
         // general characteristics
-        string name;
+        //string name;
         // stats
         public int constitution { get; set; }
         public int dexterity { get; set; }
@@ -26,6 +26,7 @@ namespace TheWinFormsChronicles.GameLogic.Character
 
         // stateful characteristics/derived characteristics
         int health;
+        int level;
         int reflexSave;
         int fortitudeSave;
         int willSave;
@@ -40,7 +41,20 @@ namespace TheWinFormsChronicles.GameLogic.Character
             blasterSkill = 8;
         }
 
-        
+        public Character(int constitution, int dexterity, int charisma, int weaponSkill, int forcePower, int blasterSkill, int level)
+        {
+            this.level = level;
+            this.constitution = constitution;
+            this.dexterity = dexterity;
+            this.charisma = charisma;
+            this.weaponSkill = weaponSkill;
+            this.forcePower = forcePower;
+            this.blasterSkill = blasterSkill;
+        }
+
+
+
+
 
         // equiped items
 

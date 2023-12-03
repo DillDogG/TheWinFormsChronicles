@@ -11,10 +11,24 @@ namespace TheWinFormsChronicles {
 
         public FormManager()
         {
-            var f1 = CreateForm<Form1>();
-            f1.Show();
-            var f2 = CreateForm<Form2>();
-            f2.ShowDialog();
+            //var f1 = CreateForm<Character>();
+            //f1.Show();
+            //var f2 = CreateForm<Form2>();
+            //f2.ShowDialog();
+            //var f3 = CreateForm<Form3>();
+            //f3.Show();
+        }
+
+        public void OpenCharacterStats()
+        {
+            var f = CreateForm<Character>();
+            f.Show();
+        }
+
+        public void OpenBattlePage()
+        {
+            var f = CreateForm<Form3>();
+            f.Show();
         }
 
         private void onFormClosed(object sender, EventArgs e) {
