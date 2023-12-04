@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheWinFormsChronicles.GameLogic.Items
+namespace TheWinFormsChronicles.GameLogic.Weapon
 {
-    internal class Item
+    internal class StunningStrike : Skill
     {
     }
 }

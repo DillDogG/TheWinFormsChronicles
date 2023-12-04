@@ -20,7 +20,7 @@ namespace TheWinFormsChronicles
         private void charDisp_Click(object sender, EventArgs e)
         {
             FormManager formManager = new FormManager();
-            formManager.OpenCharacterStats();
+            formManager.OpenCharacterStats(false);
         }
     }
 }

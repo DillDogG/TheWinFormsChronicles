@@ -11,7 +11,7 @@ namespace TheWinFormsChronicles {
 
         public FormManager()
         {
-            //var f1 = CreateForm<Character>();
+            //var f1 = CreateForm<Form1>();
             //f1.Show();
             //var f2 = CreateForm<Form2>();
             //f2.ShowDialog();
@@ -19,10 +19,14 @@ namespace TheWinFormsChronicles {
             //f3.Show();
         }
 
-        public void OpenCharacterStats()
+        public void OpenCharacterStats(bool first = true)
         {
-            var f = CreateForm<Character>();
+            var f = CreateForm<Form1>();
             f.Show();
+            if (!first)
+            {
+                f.setCharacter();
+            }
         }
 
         public void OpenBattlePage()

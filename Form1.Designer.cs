@@ -1,6 +1,6 @@
 ﻿namespace TheWinFormsChronicles;
 
-partial class Character
+partial class Form1
 {
     /// <summary>
     ///  Required designer variable.
@@ -28,7 +28,7 @@ partial class Character
     /// </summary>
     private void InitializeComponent()
     {
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Character));
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
         constitutionDisp = new NumericUpDown();
         dexterityDisp = new NumericUpDown();
         weaponSkillDisp = new NumericUpDown();
@@ -291,7 +291,7 @@ partial class Character
         currWeapAbilities.TabIndex = 23;
         currWeapAbilities.Text = "Weapon Abilities: ";
         // 
-        // Character
+        // Form1
         // 
         AutoScaleDimensions = new SizeF(10F, 25F);
         AutoScaleMode = AutoScaleMode.Font;
@@ -318,8 +318,8 @@ partial class Character
         Controls.Add(weaponSkillDisp);
         Controls.Add(dexterityDisp);
         Controls.Add(constitutionDisp);
-        Name = "Character";
-        Text = "Form1";
+        Name = "Form1";
+        Text = "Character Stats";
         Load += Form1_Load;
         ((System.ComponentModel.ISupportInitialize)constitutionDisp).EndInit();
         ((System.ComponentModel.ISupportInitialize)dexterityDisp).EndInit();

@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheWinFormsChronicles.GameLogic.Weapon
 {
-    internal class LightSaber : Weapon
+    internal class Skill
     {
-        public LightSaber()
-        {
-            minDamage = 10;
-            maxDamage = 30;
-        }
     }
 }

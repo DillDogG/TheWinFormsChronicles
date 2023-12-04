@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TheWinFormsChronicles.GameLogic.Weapon;
 
 namespace TheWinFormsChronicles.GameLogic.Character
 {
@@ -21,6 +22,10 @@ namespace TheWinFormsChronicles.GameLogic.Character
         public int weaponSkill { get; set; }
         public int forcePower { get; set; }
         public int blasterSkill { get; set; }
+        public Weapon.Weapon currentWeapon { get; set; }
+        public Blaster.Blaster currentBlaster { get; set; }
+        public Force.Force currentForce { get; set; }
+        public Weapon.Skill currentSkill { get; set; }
 
         
 
@@ -31,6 +36,7 @@ namespace TheWinFormsChronicles.GameLogic.Character
         int fortitudeSave;
         int willSave;
         int forceSave;
+        int blastHitBonus;
 
         public Character() {
             constitution = 8;
@@ -52,7 +58,20 @@ namespace TheWinFormsChronicles.GameLogic.Character
             this.blasterSkill = blasterSkill;
         }
 
+        public int makeBonus(int stat)
+        {
+            return (int)Math.Round((decimal)(stat - 10) / 2, MidpointRounding.ToZero);
+        }
 
+        public void setStatefuls()
+        {
+            health = (constitution + 5) * level;
+            forceSave = makeBonus(forcePower);
+            reflexSave = makeBonus(dexterity) + forceSave;
+            fortitudeSave = makeBonus(constitution);
+            willSave = makeBonus(charisma);
+            blastHitBonus = makeBonus(blasterSkill);
+        }
 
 
 
@@ -73,12 +92,19 @@ namespace TheWinFormsChronicles.GameLogic.Character
 
         public int performAttack()
         {
-            return weaponSkill * 5;
+            Random rnd = new Random();
+            return reflexSave + rnd.Next(1, 21);
+        }
+
+        public int performShot()
+        {
+            Random rnd = new Random();
+            return blastHitBonus + rnd.Next(1, 21);
         }
 
         public void defend(int incomingDamage)
         {
-            health -= incomingDamage - (dexterity * (forceSave + 1));
+            if ((incomingDamage - (reflexSave + fortitudeSave)) > 0) health -= incomingDamage - (reflexSave + fortitudeSave);
         }
     }
 }

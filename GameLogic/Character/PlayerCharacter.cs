@@ -9,7 +9,8 @@ namespace TheWinFormsChronicles.GameLogic.Character
     internal class PlayerCharacter : Character
     {
         public int level = 1;
-        public PlayerCharacter(int constitution, int dexterity, int charisma, int weaponSkill, int forcePower, int blasterSkill)
+        public PlayerCharacter() { }
+        public void createCharacter(int constitution, int dexterity, int charisma, int weaponSkill, int forcePower, int blasterSkill)
         {
             this.constitution = constitution;
             this.dexterity = dexterity;
@@ -19,6 +20,9 @@ namespace TheWinFormsChronicles.GameLogic.Character
             this.blasterSkill = blasterSkill;
         }
 
-
+        public void levelUp()
+        {
+            level++;
+        }
     }
 }

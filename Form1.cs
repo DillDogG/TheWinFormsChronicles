@@ -1,27 +1,73 @@
+using TheWinFormsChronicles.UI;
+
 namespace TheWinFormsChronicles;
 
-public partial class Character : Form
+public partial class Form1 : Form
 {
-    UI.uCharacter playerCharacter;
-    GameLogic.Character.PlayerCharacter pChar;
-    public Character()
+    //GameLogic.Character.PlayerCharacter pChar;
+    public Form1()
     {
         InitializeComponent();
-        //GameLogic.Character.Character gameCharacter = new GameLogic.Character.Character();
-        playerCharacter = new UI.uCharacter();
-        //playerCharacter.Constitution = gameCharacter.constitution;
 
         initializeCharacterComponents();
 
     }
+
+    public void setCharacter()
+    {
+        //playerCharacter = pCharacter;
+        charCreate.Enabled = false;
+        constitutionDisp.Enabled = false;
+        constitutionDisp.Maximum = 20;
+        constitutionDisp.Value = Globals.u_player.Constitution;
+        dexterityDisp.Enabled = false;
+        dexterityDisp.Maximum = 20;
+        dexterityDisp.Value = Globals.u_player.Dexterity;
+        charismaDisp.Enabled = false;
+        charismaDisp.Maximum = 20;
+        charismaDisp.Value = Globals.u_player.Charisma;
+        weaponSkillDisp.Enabled = false;
+        weaponSkillDisp.Maximum = 20;
+        weaponSkillDisp.Value = Globals.u_player.WeaponSkill;
+        forcePowerDisp.Enabled = false;
+        forcePowerDisp.Maximum = 20;
+        forcePowerDisp.Value = Globals.u_player.ForcePower;
+        blasterSkillDisp.Enabled = false;
+        blasterSkillDisp.Maximum = 20;
+        blasterSkillDisp.Value = Globals.u_player.BlasterSkill;
+        pointsLeft.Text = "Points Left: " + Globals.u_player.CreationPoints;
+        hpDisp.Text = "Health: " + (Globals.u_player.Constitution + 5);
+        if (Globals.u_player.WeaponSkill >= 13)
+        {
+            currWeapon.Text = "Weapon: Light Saber";
+            currWeapAbilities.Text = "Weapon Abilities: Stunning Strike, Boomerang";
+        }
+        else if (Globals.u_player.WeaponSkill >= 10)
+        {
+            currWeapon.Text = "Weapon: Crackling Baton";
+            currWeapAbilities.Text = "Weapon Abilities: Stunning Strike";
+        }
+        else
+        {
+            currWeapon.Text = "Weapon: Baton";
+            currWeapAbilities.Text = "Weapon Abilities: ";
+        }
+        if (Globals.u_player.ForcePower >= 13) currForceAbilities.Text = "Force Abilities: Push/Pull, Choke";
+        else if (Globals.u_player.ForcePower >= 10) currForceAbilities.Text = "Force Abilities: Push/Pull";
+        else currForceAbilities.Text = "Force Abilities: Grab Object";
+        if (Globals.u_player.BlasterSkill >= 13) currBlast.Text = "Blaster: Rapid Blaster";
+        else if (Globals.u_player.BlasterSkill >= 10) currBlast.Text = "Blaster: New Blaster";
+        else currBlast.Text = "Blaster: Old Blaster";
+    }
+
     private void initializeCharacterComponents()
     {
-        constitutionDisp.DataBindings.Add("Text", playerCharacter, "constitution", false, DataSourceUpdateMode.OnPropertyChanged);
-        dexterityDisp.DataBindings.Add("Text", playerCharacter, "dexterity", false, DataSourceUpdateMode.OnPropertyChanged);
-        charismaDisp.DataBindings.Add("Text", playerCharacter, "charisma", false, DataSourceUpdateMode.OnPropertyChanged);
-        weaponSkillDisp.DataBindings.Add("Text", playerCharacter, "weaponSkill", false, DataSourceUpdateMode.OnPropertyChanged);
-        forcePowerDisp.DataBindings.Add("Text", playerCharacter, "forcePower", false, DataSourceUpdateMode.OnPropertyChanged);
-        blasterSkillDisp.DataBindings.Add("Text", playerCharacter, "blasterSkill", false, DataSourceUpdateMode.OnPropertyChanged);
+        constitutionDisp.DataBindings.Add("Text", Globals.u_player, "constitution", false, DataSourceUpdateMode.OnPropertyChanged);
+        dexterityDisp.DataBindings.Add("Text", Globals.u_player, "dexterity", false, DataSourceUpdateMode.OnPropertyChanged);
+        charismaDisp.DataBindings.Add("Text", Globals.u_player, "charisma", false, DataSourceUpdateMode.OnPropertyChanged);
+        weaponSkillDisp.DataBindings.Add("Text", Globals.u_player, "weaponSkill", false, DataSourceUpdateMode.OnPropertyChanged);
+        forcePowerDisp.DataBindings.Add("Text", Globals.u_player, "forcePower", false, DataSourceUpdateMode.OnPropertyChanged);
+        blasterSkillDisp.DataBindings.Add("Text", Globals.u_player, "blasterSkill", false, DataSourceUpdateMode.OnPropertyChanged);
     }
 
     private void Form1_Load(object sender, EventArgs e)
@@ -32,224 +78,234 @@ public partial class Character : Form
 
     private void charCreate_Click(object sender, EventArgs e)
     {
-        if (playerCharacter.CreationPoints > 0)
+        if (Globals.u_player.CreationPoints > 0)
         {
-            pointsLeft.Text = "Can't create character, still have " + playerCharacter.CreationPoints + " points left.";
+            pointsLeft.Text = "Can't create character, still have " + Globals.u_player.CreationPoints + " points left.";
         }
-        else if (playerCharacter.CreationPoints < 0)
+        else if (Globals.u_player.CreationPoints < 0)
         {
             pointsLeft.Text = "Can't create character, spent too many points.";
         }
         else
         {
-            pChar = new GameLogic.Character.PlayerCharacter(playerCharacter.Constitution, playerCharacter.Dexterity, playerCharacter.Charisma, playerCharacter.WeaponSkill, playerCharacter.ForcePower, playerCharacter.BlasterSkill);
+            Globals.player.createCharacter(Globals.u_player.Constitution, Globals.u_player.Dexterity, Globals.u_player.Charisma, Globals.u_player.WeaponSkill, Globals.u_player.ForcePower, Globals.u_player.BlasterSkill);
             charCreate.Enabled = false;
             constitutionDisp.Enabled = false;
             constitutionDisp.Maximum = 20;
+            dexterityDisp.Enabled = false;
+            dexterityDisp.Maximum = 20;
+            charismaDisp.Enabled = false;
+            charismaDisp.Maximum = 20;
+            weaponSkillDisp.Enabled = false;
+            weaponSkillDisp.Maximum = 20;
+            forcePowerDisp.Enabled = false;
+            forcePowerDisp.Maximum = 20;
+            blasterSkillDisp.Enabled = false;
+            blasterSkillDisp.Maximum = 20;
         }
     }
 
     private void constitutionDisp_ValueChanged(object sender, EventArgs e)
     {
         int constititionToAdd = (int)constitutionDisp.Value;
-        if (constititionToAdd > playerCharacter.Constitution)
+        if (constititionToAdd > Globals.u_player.Constitution)
         {
-            if (playerCharacter.Constitution >= 13) playerCharacter.CreationPoints -= 2;
-            else playerCharacter.CreationPoints -= 1;
+            if (Globals.u_player.Constitution >= 13) Globals.u_player.CreationPoints -= 2;
+            else Globals.u_player.CreationPoints -= 1;
         }
-        else if (constititionToAdd < playerCharacter.Constitution)
+        else if (constititionToAdd < Globals.u_player.Constitution)
         {
-            if (playerCharacter.Constitution > 13) playerCharacter.CreationPoints += 2;
-            else playerCharacter.CreationPoints += 1;
+            if (Globals.u_player.Constitution > 13) Globals.u_player.CreationPoints += 2;
+            else Globals.u_player.CreationPoints += 1;
         }
-        playerCharacter.Constitution = constititionToAdd;
-        pointsLeft.Text = "Points Left: " + playerCharacter.CreationPoints;
-        hpDisp.Text = "Health: " + (playerCharacter.Constitution + 5);
+        Globals.u_player.Constitution = constititionToAdd;
+        pointsLeft.Text = "Points Left: " + Globals.u_player.CreationPoints;
+        hpDisp.Text = "Health: " + (Globals.u_player.Constitution + 5);
 
     }
 
     private void dexterityDisp_ValueChanged(object sender, EventArgs e)
     {
         int dexterityToAdd = (int)dexterityDisp.Value;
-        if (dexterityToAdd > playerCharacter.Dexterity)
+        if (dexterityToAdd > Globals.u_player.Dexterity)
         {
-            if (playerCharacter.Dexterity >= 13) playerCharacter.CreationPoints -= 2;
-            else playerCharacter.CreationPoints -= 1;
+            if (Globals.u_player.Dexterity >= 13) Globals.u_player.CreationPoints -= 2;
+            else Globals.u_player.CreationPoints -= 1;
         }
-        else if (dexterityToAdd < playerCharacter.Dexterity)
+        else if (dexterityToAdd < Globals.u_player.Dexterity)
         {
-            if (playerCharacter.Dexterity > 13) playerCharacter.CreationPoints += 2;
-            else playerCharacter.CreationPoints += 1;
+            if (Globals.u_player.Dexterity > 13) Globals.u_player.CreationPoints += 2;
+            else Globals.u_player.CreationPoints += 1;
         }
-        playerCharacter.Dexterity = dexterityToAdd;
-        pointsLeft.Text = "Points Left: " + playerCharacter.CreationPoints;
+        Globals.u_player.Dexterity = dexterityToAdd;
+        pointsLeft.Text = "Points Left: " + Globals.u_player.CreationPoints;
     }
 
     private void charismaDisp_ValueChanged(object sender, EventArgs e)
     {
         int charismaToAdd = (int)charismaDisp.Value;
-        if (charismaToAdd > playerCharacter.Charisma)
+        if (charismaToAdd > Globals.u_player.Charisma)
         {
-            if (playerCharacter.Charisma >= 13) playerCharacter.CreationPoints -= 2;
-            else playerCharacter.CreationPoints -= 1;
+            if (Globals.u_player.Charisma >= 13) Globals.u_player.CreationPoints -= 2;
+            else Globals.u_player.CreationPoints -= 1;
         }
-        else if (charismaToAdd < playerCharacter.Charisma)
+        else if (charismaToAdd < Globals.u_player.Charisma)
         {
-            if (playerCharacter.Charisma > 13) playerCharacter.CreationPoints += 2;
-            else playerCharacter.CreationPoints += 1;
+            if (Globals.u_player.Charisma > 13) Globals.u_player.CreationPoints += 2;
+            else Globals.u_player.CreationPoints += 1;
         }
-        playerCharacter.Charisma = charismaToAdd;
-        pointsLeft.Text = "Points Left: " + playerCharacter.CreationPoints;
+        Globals.u_player.Charisma = charismaToAdd;
+        pointsLeft.Text = "Points Left: " + Globals.u_player.CreationPoints;
     }
 
     private void weaponSkillDisp_ValueChanged(object sender, EventArgs e)
     {
         int weaponSkillToAdd = (int)weaponSkillDisp.Value;
-        if (weaponSkillToAdd > playerCharacter.WeaponSkill)
+        if (weaponSkillToAdd > Globals.u_player.WeaponSkill)
         {
-            if (playerCharacter.WeaponSkill >= 13)
+            if (Globals.u_player.WeaponSkill >= 13)
             {
-                playerCharacter.CreationPoints -= 2;
+                Globals.u_player.CreationPoints -= 2;
                 currWeapon.Text = "Weapon: Light Saber";
                 currWeapAbilities.Text = "Weapon Abilities: Stunning Strike, Boomerang";
             }
-            else if (playerCharacter.WeaponSkill >= 10)
+            else if (Globals.u_player.WeaponSkill >= 10)
             {
-                playerCharacter.CreationPoints -= 1;
+                Globals.u_player.CreationPoints -= 1;
                 currWeapon.Text = "Weapon: Crackling Baton";
                 currWeapAbilities.Text = "Weapon Abilities: Stunning Strike";
             }
             else
             {
-                playerCharacter.CreationPoints -= 1;
+                Globals.u_player.CreationPoints -= 1;
                 currWeapon.Text = "Weapon: Baton";
                 currWeapAbilities.Text = "Weapon Abilities: ";
             }
         }
-        else if (weaponSkillToAdd < playerCharacter.WeaponSkill)
+        else if (weaponSkillToAdd < Globals.u_player.WeaponSkill)
         {
-            if (playerCharacter.WeaponSkill > 14)
+            if (Globals.u_player.WeaponSkill > 14)
             {
-                playerCharacter.CreationPoints += 2;
+                Globals.u_player.CreationPoints += 2;
                 currWeapon.Text = "Weapon: Light Saber";
                 currWeapAbilities.Text = "Weapon Abilities: Stunning Strike, Boomerang";
             }
-            else if (playerCharacter.WeaponSkill > 13)
+            else if (Globals.u_player.WeaponSkill > 13)
             {
-                playerCharacter.CreationPoints += 2;
+                Globals.u_player.CreationPoints += 2;
                 currWeapon.Text = "Weapon: Crackling Baton";
                 currWeapAbilities.Text = "Weapon Abilities: Stunning Strike";
             }
-            else if (playerCharacter.WeaponSkill > 11)
+            else if (Globals.u_player.WeaponSkill > 11)
             {
-                playerCharacter.CreationPoints += 1;
+                Globals.u_player.CreationPoints += 1;
                 currWeapon.Text = "Weapon: Crackling Baton";
                 currWeapAbilities.Text = "Weapon Abilities: Stunning Strike";
             }
             else
             {
-                playerCharacter.CreationPoints += 1;
+                Globals.u_player.CreationPoints += 1;
                 currWeapon.Text = "Weapon: Baton";
                 currWeapAbilities.Text = "Weapon Abilities: ";
             }
         }
-        playerCharacter.WeaponSkill = weaponSkillToAdd;
-        pointsLeft.Text = "Points Left: " + playerCharacter.CreationPoints;
+        Globals.u_player.WeaponSkill = weaponSkillToAdd;
+        pointsLeft.Text = "Points Left: " + Globals.u_player.CreationPoints;
     }
 
     private void forcePowerDisp_ValueChanged(object sender, EventArgs e)
     {
         int forcePowerToAdd = (int)forcePowerDisp.Value;
-        if (forcePowerToAdd > playerCharacter.ForcePower)
+        if (forcePowerToAdd > Globals.u_player.ForcePower)
         {
-            if (playerCharacter.ForcePower >= 13)
+            if (Globals.u_player.ForcePower >= 13)
             {
-                playerCharacter.CreationPoints -= 2;
+                Globals.u_player.CreationPoints -= 2;
                 currForceAbilities.Text = "Force Abilities: Push/Pull, Choke";
             }
-            else if (playerCharacter.ForcePower >= 10)
+            else if (Globals.u_player.ForcePower >= 10)
             {
-                playerCharacter.CreationPoints -= 1;
+                Globals.u_player.CreationPoints -= 1;
                 currForceAbilities.Text = "Force Abilities: Push/Pull";
             }
             else
             {
-                playerCharacter.CreationPoints -= 1;
+                Globals.u_player.CreationPoints -= 1;
                 currForceAbilities.Text = "Force Abilities: Grab Object";
             }
         }
-        else if (forcePowerToAdd < playerCharacter.ForcePower)
+        else if (forcePowerToAdd < Globals.u_player.ForcePower)
         {
-            if (playerCharacter.ForcePower > 14)
+            if (Globals.u_player.ForcePower > 14)
             {
-                playerCharacter.CreationPoints += 2;
+                Globals.u_player.CreationPoints += 2;
                 currForceAbilities.Text = "Force Abilities: Push/Pull, Choke";
             }
-            else if (playerCharacter.ForcePower > 13)
+            else if (Globals.u_player.ForcePower > 13)
             {
-                playerCharacter.CreationPoints += 2;
+                Globals.u_player.CreationPoints += 2;
                 currForceAbilities.Text = "Force Abilities: Push/Pull";
             }
-            else if (playerCharacter.ForcePower > 11)
+            else if (Globals.u_player.ForcePower > 11)
             {
-                playerCharacter.CreationPoints += 1;
+                Globals.u_player.CreationPoints += 1;
                 currForceAbilities.Text = "Force Abilities: Push/Pull";
             }
             else
             {
-                playerCharacter.CreationPoints += 1;
+                Globals.u_player.CreationPoints += 1;
                 currForceAbilities.Text = "Force Abilities: Grab Object";
             }
         }
-        playerCharacter.ForcePower = forcePowerToAdd;
-        pointsLeft.Text = "Points Left: " + playerCharacter.CreationPoints;
+        Globals.u_player.ForcePower = forcePowerToAdd;
+        pointsLeft.Text = "Points Left: " + Globals.u_player.CreationPoints;
     }
 
     private void blasterSkillDisp_ValueChanged(object sender, EventArgs e)
     {
         int blasterPowerToAdd = (int)blasterSkillDisp.Value;
-        if (blasterPowerToAdd > playerCharacter.BlasterSkill)
+        if (blasterPowerToAdd > Globals.u_player.BlasterSkill)
         {
-            if (playerCharacter.BlasterSkill >= 13)
+            if (Globals.u_player.BlasterSkill >= 13)
             {
-                playerCharacter.CreationPoints -= 2;
+                Globals.u_player.CreationPoints -= 2;
                 currBlast.Text = "Blaster: Rapid Blaster";
             }
-            else if (playerCharacter.BlasterSkill >= 10)
+            else if (Globals.u_player.BlasterSkill >= 10)
             {
-                playerCharacter.CreationPoints -= 1;
+                Globals.u_player.CreationPoints -= 1;
                 currBlast.Text = "Blaster: New Blaster";
             }
             else
             {
-                playerCharacter.CreationPoints -= 1;
+                Globals.u_player.CreationPoints -= 1;
                 currBlast.Text = "Blaster: Old Blaster";
             }
         }
-        else if (blasterPowerToAdd < playerCharacter.BlasterSkill)
+        else if (blasterPowerToAdd < Globals.u_player.BlasterSkill)
         {
-            if (playerCharacter.BlasterSkill > 14)
+            if (Globals.u_player.BlasterSkill > 14)
             {
-                playerCharacter.CreationPoints += 2;
+                Globals.u_player.CreationPoints += 2;
                 currBlast.Text = "Blaster: Rapid Blaster";
             }
-            else if (playerCharacter.BlasterSkill > 13)
+            else if (Globals.u_player.BlasterSkill > 13)
             {
-                playerCharacter.CreationPoints += 2;
+                Globals.u_player.CreationPoints += 2;
                 currBlast.Text = "Blaster: New Blaster";
             }
-            else if (playerCharacter.BlasterSkill > 11)
+            else if (Globals.u_player.BlasterSkill > 11)
             {
-                playerCharacter.CreationPoints += 1;
+                Globals.u_player.CreationPoints += 1;
                 currBlast.Text = "Blaster: New Blaster";
             }
             else
             {
-                playerCharacter.CreationPoints += 1;
+                Globals.u_player.CreationPoints += 1;
                 currBlast.Text = "Blaster: Old Blaster";
             }
         }
-        playerCharacter.BlasterSkill = blasterPowerToAdd;
-        pointsLeft.Text = "Points Left: " + playerCharacter.CreationPoints;
+        Globals.u_player.BlasterSkill = blasterPowerToAdd;
+        pointsLeft.Text = "Points Left: " + Globals.u_player.CreationPoints;
     }
 }

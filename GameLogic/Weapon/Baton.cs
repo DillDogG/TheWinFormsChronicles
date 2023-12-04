@@ -8,5 +8,10 @@ namespace TheWinFormsChronicles.GameLogic.Weapon
 {
     internal class Baton : Weapon
     {
+        public Baton()
+        {
+            minDamage = 1;
+            maxDamage = 6;
+        }
     }
 }

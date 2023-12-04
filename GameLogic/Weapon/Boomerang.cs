@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TheWinFormsChronicles.GameLogic.Weapon
 {
-    internal class LightSaber : Weapon
+    internal class Boomerang : Skill
     {
-        public LightSaber()
-        {
-            minDamage = 10;
-            maxDamage = 30;
-        }
     }
 }

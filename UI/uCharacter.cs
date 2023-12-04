@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TheWinFormsChronicles.UI {
-    internal class uCharacter : INotifyPropertyChanged {
+    public class uCharacter : INotifyPropertyChanged {
         private int constitution;
         private int dexterity;
         private int charisma;
