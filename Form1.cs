@@ -54,7 +54,7 @@ public partial class Form1 : Form
         }
         if (Globals.u_player.ForcePower >= 13) currForceAbilities.Text = "Force Abilities: Push/Pull, Choke";
         else if (Globals.u_player.ForcePower >= 10) currForceAbilities.Text = "Force Abilities: Push/Pull";
-        else currForceAbilities.Text = "Force Abilities: Grab Object";
+        else currForceAbilities.Text = "Force Abilities: ";
         if (Globals.u_player.BlasterSkill >= 13) currBlast.Text = "Blaster: Rapid Blaster";
         else if (Globals.u_player.BlasterSkill >= 10) currBlast.Text = "Blaster: New Blaster";
         else currBlast.Text = "Blaster: Old Blaster";
@@ -102,6 +102,7 @@ public partial class Form1 : Form
             forcePowerDisp.Maximum = 20;
             blasterSkillDisp.Enabled = false;
             blasterSkillDisp.Maximum = 20;
+            Globals.formManager.OpenBattlePage(1, false);
         }
     }
 
@@ -231,7 +232,7 @@ public partial class Form1 : Form
             else
             {
                 Globals.u_player.CreationPoints -= 1;
-                currForceAbilities.Text = "Force Abilities: Grab Object";
+                currForceAbilities.Text = "Force Abilities: ";
             }
         }
         else if (forcePowerToAdd < Globals.u_player.ForcePower)
@@ -254,7 +255,7 @@ public partial class Form1 : Form
             else
             {
                 Globals.u_player.CreationPoints += 1;
-                currForceAbilities.Text = "Force Abilities: Grab Object";
+                currForceAbilities.Text = "Force Abilities: ";
             }
         }
         Globals.u_player.ForcePower = forcePowerToAdd;

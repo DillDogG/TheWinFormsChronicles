@@ -14,9 +14,9 @@ static class Program
         // To customize application configuration such as set high DPI settings or default font,
         // see https://aka.ms/applicationconfiguration.
         ApplicationConfiguration.Initialize();
-        FormManager formManager = new FormManager();
-        formManager.OpenCharacterStats();
-        formManager.OpenBattlePage();
+        Globals.formManager.OpenCharacterStats();
+        //Globals.formManager.OpenBattlePage();
+        Globals.formManager.OpenLevelUp();
         Application.Run(FormManager.Current);
 
         GameLogic.Character.Character myCharacter = new GameLogic.Character.Character();

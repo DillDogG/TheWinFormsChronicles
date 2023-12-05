@@ -8,5 +8,10 @@ namespace TheWinFormsChronicles.GameLogic.Weapon
 {
     internal class StunningStrike : Skill
     {
+        public bool checkEffect(int attack, int defend)
+        {
+            if (attack > defend) return true;
+            return false;
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace TheWinFormsChronicles.GameLogic.Weapon
             maxDamage = max;
         }
 
-        public int attemptAttack()
+        public int attack()
         {
             Random rnd = new Random();
             int damage = rnd.Next(minDamage, maxDamage + 1);

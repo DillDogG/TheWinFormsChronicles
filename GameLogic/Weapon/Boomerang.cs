@@ -9,5 +9,6 @@ namespace TheWinFormsChronicles.GameLogic.Weapon
 {
     internal class Boomerang : Skill
     {
+        
     }
 }

@@ -29,9 +29,22 @@ namespace TheWinFormsChronicles {
             }
         }
 
-        public void OpenBattlePage()
+        public void OpenDialogue()
+        {
+            var f = CreateForm<Form2>();
+            f.Show();
+        }
+
+        public void OpenBattlePage(int level = 1, bool sith = true)
         {
             var f = CreateForm<Form3>();
+            f.Show();
+            f.makeEnemy(level, sith);
+        }
+
+        public void OpenLevelUp()
+        {
+            var f = CreateForm<Form4>();
             f.Show();
         }
 

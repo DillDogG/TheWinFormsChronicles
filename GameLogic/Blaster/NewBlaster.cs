@@ -8,5 +8,11 @@ namespace TheWinFormsChronicles.GameLogic.Blaster
 {
     internal class NewBlaster : Blaster
     {
+        public NewBlaster()
+        {
+            minDamage = 1;
+            maxDamage = 6;
+            shotCount = 2;
+        }
     }
 }

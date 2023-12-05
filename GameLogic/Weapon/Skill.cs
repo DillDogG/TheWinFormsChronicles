@@ -8,5 +8,12 @@ namespace TheWinFormsChronicles.GameLogic.Weapon
 {
     internal class Skill
     {
+        public int performSkill(int bonus)
+        {
+            Random rnd = new Random();
+            return bonus + rnd.Next(1, 21);
+        }
+
+        
     }
 }

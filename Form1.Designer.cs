@@ -249,7 +249,7 @@ partial class Form1
         currForceAbilities.ReadOnly = true;
         currForceAbilities.Size = new Size(630, 31);
         currForceAbilities.TabIndex = 21;
-        currForceAbilities.Text = "Force Abilities: Grab Object";
+        currForceAbilities.Text = "Force Abilities: ";
         // 
         // currBlast
         // 
