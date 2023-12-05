@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheWinFormsChronicles.GameLogic.dialogue
 {
-    internal class Dialogue
+    public class Dialogue
     {
         public Response dialogueStart { get; set; }
     }

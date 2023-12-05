@@ -17,15 +17,33 @@ static class Program
         Globals.formManager.OpenCharacterStats();
         //Globals.formManager.OpenBattlePage();
         Globals.formManager.OpenLevelUp();
-        Application.Run(FormManager.Current);
+        
 
         GameLogic.Character.Character myCharacter = new GameLogic.Character.Character();
-        NonPlayerCharacter generalGrevious = new NonPlayerCharacter();
+        NonPlayerCharacter generalGrevious = new NonPlayerCharacter("General Grevious");
         generalGrevious.dialogue = new Dialogue();
+        Response beg = new Response();
 
+        Response end = new Response();
+        end.responseText = "End Dialogue";
+        
         // romance tree
         Response romanceContinuation = new Response();
+        romanceContinuation.responseText = "Oh, really? Well, how've you been?";
+        romanceContinuation.dialogueOptions.Add(
+            "I've been good.",
+            beg
+            ) ;
+        romanceContinuation.dialogueOptions.Add(
+            "They haven't been that good.",
+            end
+            );
         Response romanceSpurned = new Response();
+        romanceSpurned.responseText = "I knew it. You're dying for that sick joke.";
+        romanceSpurned.dialogueOptions.Add(
+            "Start fight",
+            end
+            );
         // romance start response
         Response romanceStart = new Response();
         romanceStart.responseText = "Oh Obi, I didn't know you cared so...";
@@ -42,11 +60,15 @@ static class Program
         // violence start option
         Response violenceStart = new Response();
         violenceStart.responseText = "VIOLENCE!!!";
+        violenceStart.dialogueOptions.Add(
+            "Start fight small",
+            end
+            );
 
         Response startOfDialogue = new Response();
         startOfDialogue.responseText = "General Kenobi!";
         startOfDialogue.dialogueOptions.Add(
-            "How've you been",
+            "How've you been?",
             romanceStart
             );
         startOfDialogue.dialogueOptions.Add(
@@ -60,7 +82,7 @@ static class Program
         Response currentResponse = generalGrevious.dialogue.dialogueStart;
 
         // player has chosen romance
-        currentResponse = currentResponse.dialogueOptions["How've you been"];
+        currentResponse = currentResponse.dialogueOptions["How've you been?"];
         // show the player the next set of dialogue options
         string[] playerOptions = currentResponse.dialogueOptions.Keys.ToArray();
         // the player chooses violence
@@ -69,5 +91,7 @@ static class Program
         if (playerOptions.Length == 0) {
             // dialogue has ended
         }
+        Globals.formManager.OpenDialogue(generalGrevious);
+        Application.Run(FormManager.Current);
     }    
 }

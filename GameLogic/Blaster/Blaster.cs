@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheWinFormsChronicles.GameLogic.Blaster
 {
-    internal class Blaster
+    public class Blaster
     {
         public int minDamage;
         public int maxDamage;

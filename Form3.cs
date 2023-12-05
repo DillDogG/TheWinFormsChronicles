@@ -245,7 +245,7 @@ namespace TheWinFormsChronicles
             if (player)
             {
                 Globals.formManager.OpenLevelUp();
-                Globals.formManager.OpenDialogue();
+                //Globals.formManager.OpenDialogue();
                 Close();
             }
             else Close();

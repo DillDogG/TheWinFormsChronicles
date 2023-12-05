@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            NPCResponse = new TextBox();
+            Option1 = new Button();
+            Option2 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -43,52 +42,46 @@
             label1.Size = new Size(218, 25);
             label1.TabIndex = 0;
             label1.Text = "Bob Robert Son of Bobert";
+            label1.TextAlign = ContentAlignment.TopCenter;
             // 
-            // textBox1
+            // NPCResponse
             // 
-            textBox1.Location = new Point(674, 186);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(150, 31);
-            textBox1.TabIndex = 1;
-            textBox1.Text = "'ello mate!";
+            NPCResponse.Location = new Point(402, 186);
+            NPCResponse.Name = "NPCResponse";
+            NPCResponse.ReadOnly = true;
+            NPCResponse.Size = new Size(688, 31);
+            NPCResponse.TabIndex = 1;
+            NPCResponse.Text = "'ello mate!";
+            NPCResponse.TextAlign = HorizontalAlignment.Center;
             // 
-            // button1
+            // Option1
             // 
-            button1.Location = new Point(632, 223);
-            button1.Name = "button1";
-            button1.Size = new Size(222, 34);
-            button1.TabIndex = 2;
-            button1.Text = "How Dare You? (Attack)";
-            button1.UseVisualStyleBackColor = true;
+            Option1.Location = new Point(402, 223);
+            Option1.Name = "Option1";
+            Option1.Size = new Size(688, 34);
+            Option1.TabIndex = 2;
+            Option1.Text = "How Dare You? (Attack)";
+            Option1.UseVisualStyleBackColor = true;
+            Option1.Click += Option1_Click;
             // 
-            // button2
+            // Option2
             // 
-            button2.Location = new Point(662, 263);
-            button2.Name = "button2";
-            button2.Size = new Size(162, 34);
-            button2.TabIndex = 3;
-            button2.Text = "Hello There!";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(589, 303);
-            button3.Name = "button3";
-            button3.Size = new Size(299, 34);
-            button3.TabIndex = 4;
-            button3.Text = "Hello there. (seductive, charisma)";
-            button3.UseVisualStyleBackColor = true;
+            Option2.Location = new Point(402, 263);
+            Option2.Name = "Option2";
+            Option2.Size = new Size(688, 34);
+            Option2.TabIndex = 3;
+            Option2.Text = "Hello There!";
+            Option2.UseVisualStyleBackColor = true;
+            Option2.Click += Option2_Click;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1455, 680);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
+            Controls.Add(Option2);
+            Controls.Add(Option1);
+            Controls.Add(NPCResponse);
             Controls.Add(label1);
             Name = "Form2";
             Text = "Form2";
@@ -99,9 +92,8 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private TextBox NPCResponse;
+        private Button Option1;
+        private Button Option2;
     }
 }

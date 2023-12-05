@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TheWinFormsChronicles.GameLogic.dialogue
 {
-    internal class Response
+    public class Response
     {
         public string responseText { get; set; }
-        public Dictionary<string, Response> dialogueOptions { get; set; }
+        public Dictionary<string, Response> dialogueOptions { get; set; } = new Dictionary<string, Response> { };
     }
 }

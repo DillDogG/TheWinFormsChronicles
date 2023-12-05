@@ -102,7 +102,8 @@ public partial class Form1 : Form
             forcePowerDisp.Maximum = 20;
             blasterSkillDisp.Enabled = false;
             blasterSkillDisp.Maximum = 20;
-            Globals.formManager.OpenBattlePage(1, false);
+            //Globals.formManager.OpenBattlePage(1, false);
+            //Globals.formManager.OpenDialogue();
         }
     }
 

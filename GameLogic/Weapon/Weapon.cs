@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheWinFormsChronicles.GameLogic.Weapon
 {
-    internal class Weapon
+    public class Weapon
     {
         public int minDamage;
         public int maxDamage;

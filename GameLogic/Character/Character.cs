@@ -12,7 +12,7 @@ using TheWinFormsChronicles.GameLogic.Weapon;
 
 namespace TheWinFormsChronicles.GameLogic.Character
 {
-    internal class Character : ICharacter {
+    public class Character : ICharacter {
         // general characteristics
         //string name;
         // stats

@@ -7,7 +7,12 @@ using TheWinFormsChronicles.GameLogic.dialogue;
 
 namespace TheWinFormsChronicles.GameLogic.Character
 {
-    internal class NonPlayerCharacter : Character {
+    public class NonPlayerCharacter : Character {
+        public string name;
         public Dialogue dialogue { get; set; }
+        public NonPlayerCharacter(string name)
+        {
+            this.name = name;
+        }
     }
 }

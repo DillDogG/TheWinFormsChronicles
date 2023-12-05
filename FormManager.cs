@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheWinFormsChronicles.GameLogic.Character;
+using TheWinFormsChronicles.GameLogic.dialogue;
 
 namespace TheWinFormsChronicles {
     internal class FormManager : ApplicationContext {
@@ -33,6 +35,13 @@ namespace TheWinFormsChronicles {
         {
             var f = CreateForm<Form2>();
             f.Show();
+        }
+
+        public void OpenDialogue(NonPlayerCharacter npc)
+        {
+            var f = CreateForm<Form2>();
+            f.Show();
+            f.setDialogue(npc);
         }
 
         public void OpenBattlePage(int level = 1, bool sith = true)
