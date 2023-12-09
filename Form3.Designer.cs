@@ -1,4 +1,4 @@
-﻿namespace TheWinFormsChronicles
+﻿namespace GameLogic
 {
     partial class Form3
     {

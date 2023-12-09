@@ -1,7 +1,7 @@
-using TheWinFormsChronicles.GameLogic.Character;
-using TheWinFormsChronicles.GameLogic.dialogue;
+using GameLogic.GameLogic.Character;
+using GameLogic.GameLogic.dialogue;
 
-namespace TheWinFormsChronicles;
+namespace GameLogic;
 
 static class Program
 {

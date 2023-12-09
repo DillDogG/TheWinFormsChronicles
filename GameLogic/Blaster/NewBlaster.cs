@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheWinFormsChronicles.GameLogic.Blaster
+namespace GameLogic.GameLogic.Blaster
 {
     internal class NewBlaster : Blaster
     {

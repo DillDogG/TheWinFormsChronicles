@@ -1,6 +1,6 @@
-using TheWinFormsChronicles.UI;
+using GameLogic.UI;
 
-namespace TheWinFormsChronicles;
+namespace GameLogic;
 
 public partial class Form1 : Form
 {

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheWinFormsChronicles.GameLogic.Character;
-using TheWinFormsChronicles.GameLogic.dialogue;
+using GameLogic.GameLogic.Character;
+using GameLogic.GameLogic.dialogue;
 
-namespace TheWinFormsChronicles {
+namespace GameLogic {
     internal class FormManager : ApplicationContext {
         private static Lazy<FormManager> _current = new Lazy<FormManager>();
         public static FormManager Current => _current.Value;

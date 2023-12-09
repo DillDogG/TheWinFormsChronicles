@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheWinFormsChronicles.GameLogic.dialogue;
+using GameLogic.GameLogic.dialogue;
 
-namespace TheWinFormsChronicles.GameLogic.Character
+namespace GameLogic.GameLogic.Character
 {
     public class NonPlayerCharacter : Character {
         public string name;

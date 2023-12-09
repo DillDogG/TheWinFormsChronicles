@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheWinFormsChronicles.GameLogic.Weapon;
+using GameLogic.GameLogic.Weapon;
 
-namespace TheWinFormsChronicles.GameLogic.Force
+namespace GameLogic.GameLogic.Force
 {
     internal class Force
     {

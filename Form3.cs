@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TheWinFormsChronicles.GameLogic.Force;
+using GameLogic.GameLogic.Force;
 
-namespace TheWinFormsChronicles
+namespace GameLogic
 {
     public partial class Form3 : Form
     {

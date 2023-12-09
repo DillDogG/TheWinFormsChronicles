@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheWinFormsChronicles.GameLogic.Character;
-using TheWinFormsChronicles.GameLogic.Force;
-using TheWinFormsChronicles.GameLogic.Weapon;
-using TheWinFormsChronicles.UI;
+using GameLogic.GameLogic.Character;
+using GameLogic.GameLogic.Force;
+using GameLogic.GameLogic.Weapon;
+using GameLogic.UI;
 
-namespace TheWinFormsChronicles
+namespace GameLogic
 {
     static class Globals
     {

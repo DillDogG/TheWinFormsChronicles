@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheWinFormsChronicles.GameLogic.Blaster;
-using TheWinFormsChronicles.GameLogic.Weapon;
+using GameLogic.GameLogic.Blaster;
+using GameLogic.GameLogic.Weapon;
 
-namespace TheWinFormsChronicles.GameLogic.Character
+namespace GameLogic.GameLogic.Character
 {
     internal class PlayerCharacter : Character
     {

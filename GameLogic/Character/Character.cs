@@ -8,9 +8,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TheWinFormsChronicles.GameLogic.Weapon;
+using GameLogic.GameLogic.Weapon;
 
-namespace TheWinFormsChronicles.GameLogic.Character
+namespace GameLogic.GameLogic.Character
 {
     public class Character : ICharacter {
         // general characteristics

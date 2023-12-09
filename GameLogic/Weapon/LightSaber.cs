@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheWinFormsChronicles.GameLogic.Weapon
+namespace GameLogic.GameLogic.Weapon
 {
     internal class LightSaber : Weapon
     {

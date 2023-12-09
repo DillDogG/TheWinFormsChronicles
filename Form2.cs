@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TheWinFormsChronicles.GameLogic.Character;
-using TheWinFormsChronicles.GameLogic.dialogue;
+using GameLogic.GameLogic.Character;
+using GameLogic.GameLogic.dialogue;
 
-namespace TheWinFormsChronicles
+namespace GameLogic
 {
     public partial class Form2 : Form
     {
